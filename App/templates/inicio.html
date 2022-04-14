@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Bienvenido Sistema de registro Clases deportes</h1>
+  
+
+    <h3>Aqui Puedes Buscar tus cursos:</h3>
+
+    <form action="/App/buscar/" method="GET">
+
+        <input type="number" name="grupo" id="grupo">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if cursos %}
+
+    <p>Estamos buscando el: {{camada}}</p>
+
+    <ul>
+	{% for curso in cursos %}
+		<li> {{curso.nombre}} </li>
+		<li> {{curso.camada}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
